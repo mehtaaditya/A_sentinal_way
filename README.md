@@ -18,13 +18,13 @@ List of tasks to be accomplised in this lab are as follows:
 >>>Configuring build-in analytical rule using activity logs
 ![2 1](https://github.com/user-attachments/assets/dfe0ae19-6b6a-41c5-8592-d9b967113dd0)
 >>>
->>>Configuring activity logs
+>>>Configuring activity logs rules
 ![2 2](https://github.com/user-attachments/assets/64c69c9d-10e8-4584-97f9-fe45c808730d)
 
 >>>>>>Activity logs started showing up in logs in sentinel
 ![2 3](https://github.com/user-attachments/assets/3d2d9ed5-3e36-4b8b-bd3d-1159833ba958)
 ![3](https://github.com/user-attachments/assets/b93dbbd3-5f15-44dd-96e0-e090830c954b)
->>>Straming AWS cloudtrail logs using in-built data connector
+>>>Streaming AWS cloudtrail logs using in-built data connector
 ![4](https://github.com/user-attachments/assets/0659f2a8-3366-4786-bc4b-aa9f71e259e4)
 >>>For this we need an AWS account and role in AWS IAM uri, Microsoft ID and workspace ID
 ![5](https://github.com/user-attachments/assets/8bdae91f-4e03-4178-8c41-da3a6befd21a)
@@ -34,11 +34,17 @@ List of tasks to be accomplised in this lab are as follows:
 ![8](https://github.com/user-attachments/assets/b6aa33b9-1de2-470e-b211-285065e982bb)
 CloudTrial events started showing up in sentinel logs
 ![9](https://github.com/user-attachments/assets/46727e3d-f75c-4cfe-89f4-a59f971d0a5a)
+ENTRA ID connector confogration from content hub
 ![10](https://github.com/user-attachments/assets/c7f664c2-5222-4db3-a38e-50f58f292585)
+VirusTotal connector for threat intelligence based alerts
 ![11](https://github.com/user-attachments/assets/6f3ff261-904b-4c5f-b42b-f8dca463ab1c)
+AWS connector for Azure Arc
 ![12](https://github.com/user-attachments/assets/33965b7e-a50d-4e52-8b8f-8eae729f8c6d)
+
 ![13](https://github.com/user-attachments/assets/0932687d-0a3e-495b-b96b-6ad6eb3e3017)
 ![14](https://github.com/user-attachments/assets/7c43fc43-e449-4da1-86af-307e9907a012)
+For this connector you need to create Cloudformation stack using template provided in Azure
+
 ![15](https://github.com/user-attachments/assets/9a312bfe-f790-4b78-84af-cfe86090ef12)
 ![16](https://github.com/user-attachments/assets/cd81df54-0f17-470d-b994-6ad3f3b0a8b8)
 ![17](https://github.com/user-attachments/assets/b79ce393-15ee-4f3a-8a00-0bbe72766c2a)
