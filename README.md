@@ -39,6 +39,7 @@ List of tasks to be accomplised in this lab are as follows:
 >>>VirusTotal connector for threat intelligence based alerts
 ![11](https://github.com/user-attachments/assets/6f3ff261-904b-4c5f-b42b-f8dca463ab1c)
 >>>AWS connector for Azure Arc
+>>>https://learn.microsoft.com/en-us/azure/azure-arc/multicloud-connector/connect-to-aws
 ![12](https://github.com/user-attachments/assets/33965b7e-a50d-4e52-8b8f-8eae729f8c6d)
 
 ![13](https://github.com/user-attachments/assets/0932687d-0a3e-495b-b96b-6ad6eb3e3017)
