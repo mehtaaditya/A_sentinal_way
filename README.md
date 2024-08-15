@@ -43,6 +43,7 @@ AWS connector for Azure Arc
 
 ![13](https://github.com/user-attachments/assets/0932687d-0a3e-495b-b96b-6ad6eb3e3017)
 ![14](https://github.com/user-attachments/assets/7c43fc43-e449-4da1-86af-307e9907a012)
+
 For this connector you need to create Cloudformation stack using template provided in Azure
 
 ![15](https://github.com/user-attachments/assets/9a312bfe-f790-4b78-84af-cfe86090ef12)
