@@ -18,7 +18,7 @@ List of tasks to be accomplised in this lab are as follows:
 
 ![VirtualBox_kali-linux-2023 2-virtualbox-amd64_15_08_2024_13_03_07](https://github.com/user-attachments/assets/3b5eb6e5-6747-4b00-aa7e-734b17327d06)
 
-![Screenshot 2024-08-15 161745](https://github.com/user-attachments/assets/7d915a40-973e-46bb-a331-3764bd596935)
+
 ![Screenshot 2024-08-15 140849](https://github.com/user-attachments/assets/3c7a45b4-b3e9-4e61-99a0-16f3aafdbd46)
 ![Screenshot 2024-08-15 134931](https://github.com/user-attachments/assets/e0cd63a1-ab36-448b-aeae-213c38325055)
 ![Screenshot 2024-08-15 133603](https://github.com/user-attachments/assets/a5ec8b1e-b807-4499-a8e2-d67250101de1)
