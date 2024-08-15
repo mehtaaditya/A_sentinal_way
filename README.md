@@ -6,6 +6,7 @@ List of tasks to be accomplised in this lab are as follows:
 3. setting up data connectors to various os and setting up configuration to azure activity logs as well as Entra id logs. I also went ahead and installed the data connector for AWS cloudformation which is equivalent to azure activity logs and bring that to Azure sentinel
 4. installing Azure ARC and then azure monitor to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
 5. 
+![Screenshot 2024-08-15 162130](https://github.com/user-attachments/assets/da431dbb-dc3d-471e-89bc-f6c943d2eb5b)
 
 ![Screenshot 2024-08-15 140849](https://github.com/user-attachments/assets/289cb17f-cf30-472c-93ea-a08bec0f69d6)
 
@@ -16,9 +17,7 @@ List of tasks to be accomplised in this lab are as follows:
 ![Screenshot 2024-08-14 222758](https://github.com/user-attachments/assets/9188d709-08a9-4b7e-94eb-91d2f72553cb)
 
 ![VirtualBox_kali-linux-2023 2-virtualbox-amd64_15_08_2024_13_03_07](https://github.com/user-attachments/assets/3b5eb6e5-6747-4b00-aa7e-734b17327d06)
-![VirtualBox_kali-linux-2023 2-virtualbox-amd64_15_08_2024_11_52_08](https://github.com/user-attachments/assets/5fcf9d99-856a-4477-a0e3-14b455efc86a)
-![VirtualBox_kali-linux-2023 2-virtualbox-amd64_15_08_2024_11_50_56](https://github.com/user-attachments/assets/a8086bf3-db5b-4a22-82fc-9d4e74a591e0)
-![Screenshot 2024-08-15 162130](https://github.com/user-attachments/assets/da431dbb-dc3d-471e-89bc-f6c943d2eb5b)
+
 ![Screenshot 2024-08-15 161745](https://github.com/user-attachments/assets/7d915a40-973e-46bb-a331-3764bd596935)
 ![Screenshot 2024-08-15 161516](https://github.com/user-attachments/assets/7245e31b-b595-439f-a517-64f660f8054e)
 ![Screenshot 2024-08-15 150428](https://github.com/user-attachments/assets/0e4b57df-2b50-4876-b273-650f48f436a9)
