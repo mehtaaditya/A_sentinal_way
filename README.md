@@ -9,18 +9,26 @@ List of tasks to be accomplised in this lab are as follows:
 6. WORK IN PROGRESS>>>>
 
 
-Setting up sentinel will automatically apply 30 days trial with 10gb per day limit and you continue using it for 30 days without any problem. Please note that sentinel can only run in certain regions https://learn.microsoft.com/en-us/azure/sentinel/geographical-availability-data-residency#supported-regions
+>>>Setting up sentinel will automatically apply 30 days trial with 10gb per day limit and you continue using it for 30 days without any problem. Please note that sentinel can only run in certain regions https://learn.microsoft.com/en-us/azure/sentinel/geographical-availability-data-residency#supported-regions
 ![1](https://github.com/user-attachments/assets/1fe7d09d-075b-4e86-88dc-51a6060238e9)
+>>>Installing Azure Activity data connector from content hub in Sentinel
 ![2](https://github.com/user-attachments/assets/2e28dba4-74d7-4788-bd4c-57e9c4d5708d)
+>>>Configuring build-in analytical rule using activity logs
 ![2 1](https://github.com/user-attachments/assets/dfe0ae19-6b6a-41c5-8592-d9b967113dd0)
+>>>Activity logs started showing up in logs in sentinel
 ![2 2](https://github.com/user-attachments/assets/64c69c9d-10e8-4584-97f9-fe45c808730d)
+>>>Configuring activity logs 
 ![2 3](https://github.com/user-attachments/assets/3d2d9ed5-3e36-4b8b-bd3d-1159833ba958)
 ![3](https://github.com/user-attachments/assets/b93dbbd3-5f15-44dd-96e0-e090830c954b)
+>>>Straming AWS cloudtrail logs using in-built data connector
 ![4](https://github.com/user-attachments/assets/0659f2a8-3366-4786-bc4b-aa9f71e259e4)
+>>>For this we need an AWS account and role in AWS IAM uri, Microsoft ID and workspace ID
 ![5](https://github.com/user-attachments/assets/8bdae91f-4e03-4178-8c41-da3a6befd21a)
+>>>
 ![6](https://github.com/user-attachments/assets/4c1ff5a3-4b1f-4d34-aba9-77a9b1ff8251)
 ![7](https://github.com/user-attachments/assets/31186f73-ffcd-4ab3-a672-bda5bd29bf5e)
 ![8](https://github.com/user-attachments/assets/b6aa33b9-1de2-470e-b211-285065e982bb)
+CloudTrial events started showing up in sentinel logs
 ![9](https://github.com/user-attachments/assets/46727e3d-f75c-4cfe-89f4-a59f971d0a5a)
 ![10](https://github.com/user-attachments/assets/c7f664c2-5222-4db3-a38e-50f58f292585)
 ![11](https://github.com/user-attachments/assets/6f3ff261-904b-4c5f-b42b-f8dca463ab1c)
