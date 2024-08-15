@@ -7,4 +7,4 @@ List of tasks to be accomplised in this lab are as follows:
 4. installing Azure ARC and then azure monitor to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
 5. 
 
-![Alt text]('Screenshot 2024-08-15 140849.png')
+![Screenshot 2024-07-09 181508](https://github.com/user-attachments/assets/71315fc0-341b-4cc4-9075-4121b6ee649e)
