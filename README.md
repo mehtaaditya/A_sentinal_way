@@ -9,7 +9,7 @@ List of tasks to be accomplised in this lab are as follows:
 6. 
 
 
-
+Setting up sentinel will automatically apply 30 days trial with 10gb per day limit and you continue using it for 30 days without any problem. Please note that sentinel can only run in certain regions https://learn.microsoft.com/en-us/azure/sentinel/geographical-availability-data-residency#supported-regions
 ![1](https://github.com/user-attachments/assets/1fe7d09d-075b-4e86-88dc-51a6060238e9)
 ![2](https://github.com/user-attachments/assets/2e28dba4-74d7-4788-bd4c-57e9c4d5708d)
 ![2 1](https://github.com/user-attachments/assets/dfe0ae19-6b6a-41c5-8592-d9b967113dd0)
