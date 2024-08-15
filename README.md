@@ -21,7 +21,7 @@ List of tasks to be accomplised in this lab are as follows:
 >>>Configuring activity logs rules
 ![2 2](https://github.com/user-attachments/assets/64c69c9d-10e8-4584-97f9-fe45c808730d)
 
->>>>>>Activity logs started showing up in logs in sentinel
+>>>Activity logs started showing up in logs in sentinel
 ![2 3](https://github.com/user-attachments/assets/3d2d9ed5-3e36-4b8b-bd3d-1159833ba958)
 ![3](https://github.com/user-attachments/assets/b93dbbd3-5f15-44dd-96e0-e090830c954b)
 >>>Streaming AWS cloudtrail logs using in-built data connector
@@ -32,68 +32,68 @@ List of tasks to be accomplised in this lab are as follows:
 ![6](https://github.com/user-attachments/assets/4c1ff5a3-4b1f-4d34-aba9-77a9b1ff8251)
 ![7](https://github.com/user-attachments/assets/31186f73-ffcd-4ab3-a672-bda5bd29bf5e)
 ![8](https://github.com/user-attachments/assets/b6aa33b9-1de2-470e-b211-285065e982bb)
-CloudTrial events started showing up in sentinel logs
+>>>CloudTrial events started showing up in sentinel logs
 ![9](https://github.com/user-attachments/assets/46727e3d-f75c-4cfe-89f4-a59f971d0a5a)
-ENTRA ID connector configuration from content hub
+>>>ENTRA ID connector configuration from content hub
 ![10](https://github.com/user-attachments/assets/c7f664c2-5222-4db3-a38e-50f58f292585)
-VirusTotal connector for threat intelligence based alerts
+>>>VirusTotal connector for threat intelligence based alerts
 ![11](https://github.com/user-attachments/assets/6f3ff261-904b-4c5f-b42b-f8dca463ab1c)
-AWS connector for Azure Arc
+>>>AWS connector for Azure Arc
 ![12](https://github.com/user-attachments/assets/33965b7e-a50d-4e52-8b8f-8eae729f8c6d)
 
 ![13](https://github.com/user-attachments/assets/0932687d-0a3e-495b-b96b-6ad6eb3e3017)
 ![14](https://github.com/user-attachments/assets/7c43fc43-e449-4da1-86af-307e9907a012)
-For this connector you need to create Cloudformation stack using template provided in Azure
+>>>For this connector you need to create Cloudformation stack using template provided in Azure
 
 ![15](https://github.com/user-attachments/assets/9a312bfe-f790-4b78-84af-cfe86090ef12)
 ![16](https://github.com/user-attachments/assets/cd81df54-0f17-470d-b994-6ad3f3b0a8b8)
 
-Azure Monitoring agent installation
+>>>Azure Monitoring agent installation
 ![17](https://github.com/user-attachments/assets/b79ce393-15ee-4f3a-8a00-0bbe72766c2a)
 
-Logs from windows machine started showing up in log analytics
+>>>Logs from windows machine started showing up in log analytics
 ![18](https://github.com/user-attachments/assets/bd769f4b-732a-42b8-a05a-8e02c3cd8a5c)
 
 ![19](https://github.com/user-attachments/assets/520b4b14-5327-4ab8-89d2-f45fb8378176)
 
-Adding AWS enviroment for Defender alerts in Environment setting 
+>>>Adding AWS enviroment for Defender alerts in Environment setting 
 ![20](https://github.com/user-attachments/assets/ab4d781d-bd64-4c37-8844-d9734e829b1e)
 ![21](https://github.com/user-attachments/assets/420b75e8-33c1-4628-9b8d-84e5fb72eee9)
-These custom roles will be created in AWS
+>>>These custom roles will be created in AWS
 ![22](https://github.com/user-attachments/assets/714607cd-3f9b-4727-88a8-8351c0cf2c24)
-AWS is now covered with Defender for cloud
+>>>AWS is now covered with Defender for cloud
 ![23](https://github.com/user-attachments/assets/a957b8ec-52ab-4b33-b4c6-0fa7835b3a7f)
 
 ![24](https://github.com/user-attachments/assets/07f8943b-35f7-4e43-9c09-9833ff0ebaab)
 
-Sample alerts in Sentinel 
+>>>Sample alerts in Sentinel 
 ![25](https://github.com/user-attachments/assets/5cc70d2c-9849-4473-9e2a-c9e53dede0fa)
 
-installing Azure Arc agent with windows MSI installer
+>>>installing Azure Arc agent with windows MSI installer
 ![26](https://github.com/user-attachments/assets/1d7242a7-1d1f-4a78-9bb0-956aa4d3138e)
-You will be asked for azure credentials and machine will be connected
+>>>You will be asked for azure credentials and machine will be connected
 ![27](https://github.com/user-attachments/assets/9056e765-7885-4a91-a337-6179489d4368)
-This machine can now be added to DCR rules and will show in the following resouces
+>>>This machine can now be added to DCR rules and will show in the following resouces
 ![28](https://github.com/user-attachments/assets/858bac7d-8afb-41aa-8cb5-5fb4964bba6f)
 
 ![29](https://github.com/user-attachments/assets/09916999-0c9a-4670-be9f-47c011883c73)
 
-Now i will install azure arc agent on a linux machine. Instead of using my own machine, i used EC2 instance
+>>>Now i will install azure arc agent on a linux machine. Instead of using my own machine, i used EC2 instance
 ![37](https://github.com/user-attachments/assets/4e41f38b-bc91-46b0-ae20-3ac7ad15ef06)
-A onboardingcript will be provided in azure to run on linux machine 
+>>>A onboardingcript will be provided in azure to run on linux machine 
 ![38](https://github.com/user-attachments/assets/b419afa6-9a2b-454e-a4ec-b94ea3f735d1)
-first i i will secure copy it to the instance running in ec2 using my KALi linux( as this is not supported OS for azure Arc)
+>>>first i i will secure copy it to the instance running in ec2 using my KALi linux( as this is not supported OS for azure Arc)
 ![39](https://github.com/user-attachments/assets/d59a1e09-57ed-4634-88b0-66e79d335f46)
-then i SSHed myselfy in to the instance and ran the .sh script
+>>>then i SSHed myselfy in to the instance and ran the .sh script
 ![40](https://github.com/user-attachments/assets/34683837-fa41-468b-b851-1a1940b89aa7)
 ![41](https://github.com/user-attachments/assets/5aee1e3a-f96f-4205-8d40-c5b7294aaacb)
-I had to change the permisiions of the file using chmod command to make it executable
+>>>I had to change the permisiions of the file using chmod command to make it executable
 ![42](https://github.com/user-attachments/assets/5a338952-0c49-4d00-af45-012100f7dd98)
-Running the script i got a code to enter in web console which i added
+>>>Running the script i got a code to enter in web console which i added
 ![43](https://github.com/user-attachments/assets/9786dfc8-8dab-41eb-9e2f-5ac78cb9f2f6)
 ![44](https://github.com/user-attachments/assets/dc8bd5e9-9e44-4503-b8f8-4a1ff2d1a316)
 
-Azure Arc succesfully installed on Amazon linux
+>>>Azure Arc succesfully installed on Amazon linux
 ![45](https://github.com/user-attachments/assets/ff88fadb-27e2-42a3-a7e8-925d7544645e)
 ![46](https://github.com/user-attachments/assets/587ec078-bf43-4fd5-87ca-d6445690dee4)
 ![47](https://github.com/user-attachments/assets/00dc2e4c-e236-45ba-841b-7187945380d0)
