@@ -8,7 +8,7 @@ List of tasks to be accomplised in this lab are as follows:
 5. installing Azure ARC and then azure monitor to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
 6. Now that we will have all the necessary logs ingested in sentinel, we can go ahead and make some analytical rules. We can use build-in rules or we can make our own.
 7. I couldnt find the one related to impossible travel login where one user login to azure from distant location within a short period of time which is impossible hence the name, so i made a custom NRT rule query using KQL for this which will run in short intervals of time to detect the suspicious login
-8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations and the results soon started showing on the dashborad of sentinel.
+8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations using VPN and the results soon started showing on the dashborad of sentinel.
 9. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
 10. For this main part i used sentinel playbook using logic apps to do some automation part and send email to the manager about this event 
 
