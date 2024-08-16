@@ -6,7 +6,11 @@ List of tasks to be accomplised in this lab are as follows:
 3. setting up data connectors to various os and setting up configuration to azure activity logs as well as Entra ID logs. I also went ahead and installed the data connector for AWS cloudtrail which is equivalent to azure activity logs and bring that to Azure sentinel
 4. To bring the logs from AWS to sentinel i had to create a stack in cloudformation using a template automatically created in sentinel while setting up the connector
 5. installing Azure ARC and then azure monitor to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
-6. WORK IN PROGRESS>>>>
+6. Now that we will have all the necessary logs ingested in sentinel, we can go ahead and make some analytical rules. We can use build-in rules or we can make our own.
+7. I couldnt find the one related to impossible travel login where one user login to azure from distant location within a short period of time which is impossible hence the name, so i made a custom NRT rule query using KQL for this which will run in short intervals of time to detect the suspicious login
+8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations and the results soon started showing on the dashborad of sentinel.
+9. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
+10. For this main part i used sentinel playbook using logic apps to do some automation part and send email to the manager about this event 
 
 
 >>>Setting up sentinel will automatically apply 30 days trial with 10gb per day limit and you continue using it for 30 days without any problem. Please note that sentinel can only run in certain regions https://learn.microsoft.com/en-us/azure/sentinel/geographical-availability-data-residency#supported-regions
