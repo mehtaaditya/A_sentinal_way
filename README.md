@@ -10,7 +10,10 @@ List of tasks to be accomplised in this lab are as follows:
 7. I couldnt find the one related to impossible travel login where one user login to azure from distant location within a short period of time which is impossible hence the name, so i made a custom NRT rule query using KQL for this which will run in short intervals of time to detect the suspicious login
 8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations using VPN and the results soon started showing on the dashborad of sentinel.
 9. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
-10. For this main part i used sentinel playbook using logic apps to do some automation part and send email to the manager about this event 
+10. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
+
+There are many substeps whithin each of these tasks. I tried to put screenshots for all important ones. 
+
 
 
 >>>Setting up sentinel will automatically apply 30 days trial with 10gb per day limit and you continue using it for 30 days without any problem. Please note that sentinel can only run in certain regions https://learn.microsoft.com/en-us/azure/sentinel/geographical-availability-data-residency#supported-regions
@@ -102,4 +105,85 @@ List of tasks to be accomplised in this lab are as follows:
 ![45](https://github.com/user-attachments/assets/ff88fadb-27e2-42a3-a7e8-925d7544645e)
 ![46](https://github.com/user-attachments/assets/587ec078-bf43-4fd5-87ca-d6445690dee4)
 ![47](https://github.com/user-attachments/assets/00dc2e4c-e236-45ba-841b-7187945380d0)
+
+Select the sidebar select analytics and then make a new sechduled rule 
+![Screenshot 2024-08-15 235443](https://github.com/user-attachments/assets/63d41201-5319-47f0-8e74-41a560dbc434)
+
+![Screenshot 2024-08-16 223545](https://github.com/user-attachments/assets/a9aea133-a3b2-4f91-bc5e-a663b5b765fe)
+
+I used the follwing query for the analytics rule.This basically produce results if their is login in entra id from distant plwce in short interval of time
+
+![Screenshot 2024-08-16 223710](https://github.com/user-attachments/assets/9846407b-b256-45b5-927e-a6b60bf939ca)
+![Screenshot 2024-08-16 223726](https://github.com/user-attachments/assets/a4ac93ee-1165-4405-90fe-0bea00147814)
+
+Activating an inbuilt rule whuch identifies a privilaged user account created outside of PIM
+
+![Screenshot 2024-08-16 223756](https://github.com/user-attachments/assets/4d28e625-3539-4b47-ae18-5853db0cce88)
+
+![Screenshot 2024-08-16 223805](https://github.com/user-attachments/assets/23831cd6-48a5-44f8-a8f5-f04c54159d6c)
+
+
+![Screenshot 2024-08-16 223822](https://github.com/user-attachments/assets/c8e544f8-3f43-4eca-ae52-e438dce79633)
+
+Incidents are created in the dashboard
+
+![Screenshot 2024-08-16 223921](https://github.com/user-attachments/assets/f1b13056-dd95-48a0-b942-8136ddab02bd)
+
+
+
+
+![Screenshot 2024-08-16 223934](https://github.com/user-attachments/assets/bf99cc40-57a8-43cf-be91-2301c0c2c5c3)
+![Screenshot 2024-08-16 224007](https://github.com/user-attachments/assets/54544b93-17da-4053-b534-1addc808ea5a)
+created automation rule to assign owner to the alert when it will be generated
+![Screenshot 2024-08-16 224113](https://github.com/user-attachments/assets/e92edc76-26a5-4dd4-9ed3-cc555b3a160c)
+
+I also created the users in my on prem windows machine and made analytical rule to triiger alert on the new user creation
+
+![Screenshot 2024-08-18 132937](https://github.com/user-attachments/assets/28c3c298-4541-47c9-9115-0d17605cf468)
+
+Made a kql query for securityevnets table like this 
+
+![Screenshot 2024-08-18 133900](https://github.com/user-attachments/assets/e6698493-c4d9-4015-8537-00ad03e69747)
+
+For sending an email when the alert is triggerd i made a playbook using logic apps desginer like this 
+
+![Screenshot 2024-08-18 134220](https://github.com/user-attachments/assets/0c93416c-378c-4578-bdb3-05b3d9bbeaa5)
+
+![Screenshot 2024-08-18 134345](https://github.com/user-attachments/assets/1d0cbe66-c7e6-4576-a795-a411a82233a5)
+
+
+Next i made the automation rule from the alert creation menu and added logic app when alert of this type is created
+
+![Screenshot 2024-08-18 134752](https://github.com/user-attachments/assets/93e29597-9fa6-4cea-90b6-8d284e60704c)
+
+incident created for new user alerts
+
+![Screenshot 2024-08-18 134939](https://github.com/user-attachments/assets/86664a67-bfc0-4009-b803-f88625d3eb14)
+
+![Screenshot 2024-08-18 135322](https://github.com/user-attachments/assets/8d747290-c22d-4169-bed0-cd7295c97c0c)
+
+The simple query i used for this rule
+
+![Screenshot 2024-08-18 135608](https://github.com/user-attachments/assets/02b62cf8-32c1-4a02-a6de-5965ecb56cb7)
+
+Be sure to give access to Logic app for sentinel reader and sentinel contributor if required
+
+![Screenshot 2024-08-18 140156](https://github.com/user-attachments/assets/2c84774b-9729-423e-9959-2ac0538d024f)
+
+email started showing up
+
+
+![Screenshot 2024-08-18 141005](https://github.com/user-attachments/assets/0d939eab-6b92-4b9d-9aeb-a86da14e3d5d)
+
+
+
+for the next part i created a account with virus total to get the api key need for the next part of automation with playbook and logic apps
+
+![Screenshot 2024-08-16 224842](https://github.com/user-attachments/assets/3070a473-8a2b-44d6-b21b-b4adc10f8df1)
+
+![Screenshot 2024-08-18 134927](https://github.com/user-attachments/assets/089e1fd6-fd98-4365-88f8-9afe330f3842)
+
+
+
+
 
