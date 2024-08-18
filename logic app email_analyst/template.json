@@ -1,0 +1,100 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_email_analyst_name": {
+            "defaultValue": "email_analyst",
+            "type": "String"
+        },
+        "connections_azuresentinel_email_analyst_externalid": {
+            "defaultValue": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/resourceGroups/first_sentinel/providers/Microsoft.Web/connections/azuresentinel-email_analyst",
+            "type": "String"
+        },
+        "connections_gmail_externalid": {
+            "defaultValue": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/resourceGroups/first_sentinel/providers/Microsoft.Web/connections/gmail",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_email_analyst_name')]",
+            "location": "southindia",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "Microsoft_Sentinel_alert": {
+                            "type": "ApiConnectionWebhook",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                                    }
+                                },
+                                "body": {
+                                    "callback_url": "@{listCallbackUrl()}"
+                                },
+                                "path": "/subscribe"
+                            }
+                        }
+                    },
+                    "actions": {
+                        "Send_email_(V2)": {
+                            "runAfter": {},
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['gmail']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "body": {
+                                    "To": "mehta.aditya777@gmail.com",
+                                    "Body": "<p>Please investige the new account</p>"
+                                },
+                                "path": "/v2/Mail"
+                            }
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "azuresentinel": {
+                                "id": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/providers/Microsoft.Web/locations/southindia/managedApis/azuresentinel",
+                                "connectionId": "[parameters('connections_azuresentinel_email_analyst_externalid')]",
+                                "connectionName": "[concat('azuresentinel-', parameters('workflows_email_analyst_name'))]",
+                                "connectionProperties": {
+                                    "authentication": {
+                                        "type": "ManagedServiceIdentity"
+                                    }
+                                }
+                            },
+                            "gmail": {
+                                "id": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/providers/Microsoft.Web/locations/southindia/managedApis/gmail",
+                                "connectionId": "[parameters('connections_gmail_externalid')]",
+                                "connectionName": "gmail"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
