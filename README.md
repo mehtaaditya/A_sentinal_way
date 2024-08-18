@@ -1,5 +1,5 @@
 
-**Weclome to this Sentinal lab
+__Weclome to this Sentinal lab
 List of tasks to be accomplised in this lab are as follows:
 1. creating a sentinel workspace which is free for first 30 days of use of upto 10gb perday of data ingestion so there is no problem setting up a trial account and working towards it
 2. setting up onprem and multicloud servers. in this tutorial i used my windows 11 pc and a linux machine on AWS which acts as on prem machine in this case  
@@ -12,7 +12,7 @@ List of tasks to be accomplised in this lab are as follows:
 9. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
 10. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
 
-There are many substeps whithin each of these tasks. I tried to put screenshots for all important ones.**
+There are many substeps whithin each of these tasks. I tried to put screenshots for all important ones.__
 
 
 
