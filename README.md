@@ -9,8 +9,9 @@ List of tasks to be accomplised in this lab are as follows:
 6. Now that we will have all the necessary logs ingested in sentinel, we can go ahead and make some analytical rules. We can use build-in rules or we can make our own.
 7. I couldnt find the one related to impossible travel login where one user login to azure from distant location within a short period of time which is impossible hence the name, so i made a custom NRT rule query using KQL for this which will run in short intervals of time to detect the suspicious login
 8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations using VPN and the results soon started showing on the dashborad of sentinel.
-9. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
-10. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
+9. i made virustotal account and got the api key needed for the activity of making the playbook and getting the ipreputation of the said address in the query results and then made the playbook using logic app designer
+10. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
+11. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
 
 There are many substeps whithin each of these tasks. I tried to put screenshots for all important ones.__
 
