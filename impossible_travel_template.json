@@ -1,0 +1,77 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/604f2ec7-c5cc-4359-9ab3-92a214811161')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/604f2ec7-c5cc-4359-9ab3-92a214811161')]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2023-12-01-preview",
+            "properties": {
+                "displayName": "Impossible travel rule 2",
+                "description": "",
+                "severity": "Medium",
+                "enabled": true,
+                "query": "let TimeWindow = 5h; // Smaller time window for NRT rule\nSigninLogs\n| where TimeGenerated > ago(5h) // Only consider recent sign-ins\n| where ResultType == 0\n| extend\n    City = tostring(LocationDetails.city),\n    State = tostring(LocationDetails.state),\n    Country = tostring(LocationDetails.countryOrRegion)\n| project\n    UserPrincipalName,\n    TimeGenerated,\n    Location = strcat(City, \", \", State, \", \", Country)\n| sort by UserPrincipalName, TimeGenerated asc\n| extend PreviousLocation = prev(Location), PreviousTimeGenerated = prev(TimeGenerated)\n| extend TimeDifference = datetime_diff(\"minute\", TimeGenerated, PreviousTimeGenerated)\n| where TimeDifference > 0 and TimeDifference <= tolong(TimeWindow)\n| where PreviousLocation != Location // Only flag if the location has changed\n| project\n    UserPrincipalName,\n    PreviousTimeGenerated,\n    PreviousLocation,\n    TimeGenerated,\n    Location,\n    TimeDifference\n\n",
+                "queryFrequency": "PT1H",
+                "queryPeriod": "PT12H",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "startTimeUtc": null,
+                "tactics": [
+                    "InitialAccess"
+                ],
+                "techniques": [],
+                "subTechniques": [],
+                "alertRuleTemplateName": null,
+                "incidentConfiguration": {
+                    "createIncident": true,
+                    "groupingConfiguration": {
+                        "enabled": false,
+                        "reopenClosedIncident": false,
+                        "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": [],
+                        "groupByAlertDetails": [],
+                        "groupByCustomDetails": []
+                    }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                },
+                "alertDetailsOverride": null,
+                "customDetails": null,
+                "entityMappings": [
+                    {
+                        "entityType": "Account",
+                        "fieldMappings": [
+                            {
+                                "identifier": "FullName",
+                                "columnName": "UserPrincipalName"
+                            }
+                        ]
+                    },
+                    {
+                        "entityType": "IP",
+                        "fieldMappings": [
+                            {
+                                "identifier": "Address",
+                                "columnName": "Location"
+                            }
+                        ]
+                    }
+                ],
+                "sentinelEntitiesMappings": null,
+                "templateVersion": null
+            }
+        }
+    ]
+}
