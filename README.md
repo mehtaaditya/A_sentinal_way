@@ -198,5 +198,6 @@ creating the playbook and ensuring i have dataconectors for all the serives used
 ![Screenshot 2024-08-16 231330](https://github.com/user-attachments/assets/383733c9-2125-43b1-9965-666d77b68b35)
 
 
-Make sure sentinel and logic app have proper permisions to acton the playbook( like we did in the slides above) and the rule is ready to run
+Make sure sentinel and logic app have proper permisions to act on the playbook( like we did in the slides above) and the rule is ready to run
+
 With this this lab is concluded..........
