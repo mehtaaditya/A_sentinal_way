@@ -13,7 +13,7 @@ List of tasks to be accomplised in this lab are as follows:
 10. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
 11. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
 
-There are many substeps whithin each of these tasks. I tried to put screenshots for all important ones.__
+__There are many substeps within each of these tasks. I tried to put screenshots for all important ones.__
 
 
 
