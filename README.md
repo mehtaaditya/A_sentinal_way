@@ -1,5 +1,5 @@
 
-Weclome to this Sentinal lab
+**Weclome to this Sentinal lab
 List of tasks to be accomplised in this lab are as follows:
 1. creating a sentinel workspace which is free for first 30 days of use of upto 10gb perday of data ingestion so there is no problem setting up a trial account and working towards it
 2. setting up onprem and multicloud servers. in this tutorial i used my windows 11 pc and a linux machine on AWS which acts as on prem machine in this case  
@@ -12,7 +12,7 @@ List of tasks to be accomplised in this lab are as follows:
 9. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
 10. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
 
-There are many substeps whithin each of these tasks. I tried to put screenshots for all important ones. 
+There are many substeps whithin each of these tasks. I tried to put screenshots for all important ones. **
 
 
 
@@ -170,20 +170,32 @@ Be sure to give access to Logic app for sentinel reader and sentinel contributor
 
 ![Screenshot 2024-08-18 140156](https://github.com/user-attachments/assets/2c84774b-9729-423e-9959-2ac0538d024f)
 
+also permission to sentinel for resource group where logic apps are present
+
+![Screenshot 2024-08-17 000631](https://github.com/user-attachments/assets/7c9ff91b-23bc-4da8-b486-66cdda4bdc4e)
+
+
 email started showing up
 
 
 ![Screenshot 2024-08-18 141005](https://github.com/user-attachments/assets/0d939eab-6b92-4b9d-9aeb-a86da14e3d5d)
 
 
-
+Now i created a newplaybook for the a;erts i got from impossible sign in to entra id. we will search the ip address in the database of virus total useing the api key that we will obtain from virustoatal page, and then getting the ip repution for that and if its not good we can choose to do number of task 
 for the next part i created a account with virus total to get the api key need for the next part of automation with playbook and logic apps
 
 ![Screenshot 2024-08-16 224842](https://github.com/user-attachments/assets/3070a473-8a2b-44d6-b21b-b4adc10f8df1)
 
-![Screenshot 2024-08-18 134927](https://github.com/user-attachments/assets/089e1fd6-fd98-4365-88f8-9afe330f3842)
+creating the playbook and ensuring i have dataconectors for all the serives used in the app
+
+![Screenshot 2024-08-16 225733](https://github.com/user-attachments/assets/63d58d24-dc83-4069-8cd7-e9ddc118f038)
 
 
+![Screenshot 2024-08-16 225955](https://github.com/user-attachments/assets/dd754637-3d10-4b0e-9bab-639b2ded5cc2)
+![Screenshot 2024-08-16 230836](https://github.com/user-attachments/assets/7d03fc81-c8b8-440c-a96d-954ae93c60eb)
+
+![Screenshot 2024-08-16 231330](https://github.com/user-attachments/assets/383733c9-2125-43b1-9965-666d77b68b35)
 
 
-
+Make sure sentinel and logic app have proper permisions to acton the playbook( like we did in the slides above) and the rule is ready to run
+With this this lab is concluded..........
