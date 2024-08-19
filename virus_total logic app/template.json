@@ -1,0 +1,206 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_Get_VirusTotalIPReport_IncidentTriggered_name": {
+            "defaultValue": "Get-VirusTotalIPReport-IncidentTriggered",
+            "type": "String"
+        },
+        "connections_azuresentinel_Get_VirusTotalIPReport_IncidentTriggered_externalid": {
+            "defaultValue": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/resourceGroups/first_sentinel/providers/Microsoft.Web/connections/azuresentinel-Get-VirusTotalIPReport-IncidentTriggered",
+            "type": "String"
+        },
+        "connections_virustotal_1_externalid": {
+            "defaultValue": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/resourceGroups/first_sentinel/providers/Microsoft.Web/connections/virustotal-1",
+            "type": "String"
+        },
+        "connections_gmail_externalid": {
+            "defaultValue": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/resourceGroups/first_sentinel/providers/Microsoft.Web/connections/gmail",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_Get_VirusTotalIPReport_IncidentTriggered_name')]",
+            "location": "southindia",
+            "tags": {
+                "LogicAppsCategory": "security",
+                "hidden-SentinelTemplateName": "Get-VirusTotalIPReport",
+                "hidden-SentinelTemplateVersion": "1.0",
+                "hidden-SentinelWorkspaceId": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/resourceGroups/first_sentinel/providers/microsoft.OperationalInsights/Workspaces/sentinel1"
+            },
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "Microsoft_Sentinel_incident": {
+                            "type": "ApiConnectionWebhook",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                                    }
+                                },
+                                "body": {
+                                    "callback_url": "@{listCallbackUrl()}"
+                                },
+                                "path": "/incident-creation"
+                            }
+                        }
+                    },
+                    "actions": {
+                        "Entities_-_Get_IPs": {
+                            "runAfter": {},
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "body": "@triggerBody()?['object']?['properties']?['relatedEntities']",
+                                "path": "/entities/ip"
+                            }
+                        },
+                        "For_each": {
+                            "foreach": "@body('Entities_-_Get_IPs')?['IPs']",
+                            "actions": {
+                                "Condition": {
+                                    "actions": {
+                                        "Add_comment_to_incident_(V3)": {
+                                            "type": "ApiConnection",
+                                            "inputs": {
+                                                "host": {
+                                                    "connection": {
+                                                        "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                                                    }
+                                                },
+                                                "method": "post",
+                                                "body": {
+                                                    "incidentArmId": "@triggerBody()?['object']?['id']",
+                                                    "message": "<p>Virus Total IP Report found for @{items('For_each')?['Address']}<br>\nReputation is: @{body('Get_an_IP_report')?['data']?['attributes']?['reputation']} which indicates likely harmless<br>\nQuery: VTIPReport_CL | where id_s == \"@{items('For_each')?['Address']}\"</p>"
+                                                },
+                                                "path": "/Incidents/Comment"
+                                            }
+                                        },
+                                        "Send_email_(V2)": {
+                                            "type": "ApiConnection",
+                                            "inputs": {
+                                                "host": {
+                                                    "connection": {
+                                                        "name": "@parameters('$connections')['gmail']['connectionId']"
+                                                    }
+                                                },
+                                                "method": "post",
+                                                "body": {
+                                                    "To": "mehta.aditya777@gmail.com",
+                                                    "Body": "<p>Check sentinel for login related alert</p>"
+                                                },
+                                                "path": "/v2/Mail"
+                                            }
+                                        }
+                                    },
+                                    "runAfter": {
+                                        "Get_an_IP_report": [
+                                            "Succeeded"
+                                        ]
+                                    },
+                                    "else": {
+                                        "actions": {
+                                            "Add_comment_to_incident_(V3)_3": {
+                                                "type": "ApiConnection",
+                                                "inputs": {
+                                                    "host": {
+                                                        "connection": {
+                                                            "name": "@parameters('$connections')['azuresentinel']['connectionId']"
+                                                        }
+                                                    },
+                                                    "method": "post",
+                                                    "body": {
+                                                        "incidentArmId": "@triggerBody()?['object']?['id']",
+                                                        "message": "<p>IP benign but still should be checked</p>"
+                                                    },
+                                                    "path": "/Incidents/Comment"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "expression": {
+                                        "and": [
+                                            {
+                                                "greaterOrEquals": [
+                                                    "@body('Get_an_IP_report')?['data']?['attributes']?['reputation']",
+                                                    0
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "type": "If"
+                                },
+                                "Get_an_IP_report": {
+                                    "type": "ApiConnection",
+                                    "inputs": {
+                                        "host": {
+                                            "connection": {
+                                                "name": "@parameters('$connections')['virustotal']['connectionId']"
+                                            }
+                                        },
+                                        "method": "get",
+                                        "path": "/api/v3/ip_addresses/@{encodeURIComponent(items('For_each')?['Address'])}"
+                                    }
+                                }
+                            },
+                            "runAfter": {
+                                "Entities_-_Get_IPs": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Foreach"
+                        }
+                    }
+                },
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "azuresentinel": {
+                                "id": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/providers/Microsoft.Web/locations/southindia/managedApis/azuresentinel",
+                                "connectionId": "[parameters('connections_azuresentinel_Get_VirusTotalIPReport_IncidentTriggered_externalid')]",
+                                "connectionName": "[concat('azuresentinel-', parameters('workflows_Get_VirusTotalIPReport_IncidentTriggered_name'))]",
+                                "connectionProperties": {
+                                    "authentication": {
+                                        "type": "ManagedServiceIdentity"
+                                    }
+                                }
+                            },
+                            "virustotal": {
+                                "id": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/providers/Microsoft.Web/locations/southindia/managedApis/virustotal",
+                                "connectionId": "[parameters('connections_virustotal_1_externalid')]",
+                                "connectionName": "virustotal-1"
+                            },
+                            "gmail": {
+                                "id": "/subscriptions/2fda207c-9885-480b-9465-7051c8587f17/providers/Microsoft.Web/locations/southindia/managedApis/gmail",
+                                "connectionId": "[parameters('connections_gmail_externalid')]",
+                                "connectionName": "gmail"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
