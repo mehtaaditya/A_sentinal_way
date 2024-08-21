@@ -12,7 +12,7 @@ List of tasks to be accomplised in this lab are as follows:
 9. i made virustotal account and got the api key needed for the activity of making the playbook and getting the ipreputation of the said address in the query results and then made the playbook using logic app designer
 10. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
 11. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
-
+12. In this part i connected two workspaces together with the help of Azure lighthouse for mangement of a client loganalytics from my own subscription.
 __There are many substeps within each of these tasks. I tried to put screenshots for all important ones.__
 
 
