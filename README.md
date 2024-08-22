@@ -196,6 +196,8 @@ for the next part i created a account with virus total to get the api key need f
 
 creating the playbook and ensuring i have dataconectors for all the serives used in the app
 
+Make sure sentinel and logic app have proper permisions to act on the playbook( like we did in the slides above) and the rule is ready to run
+
 ![Screenshot 2024-08-16 225733](https://github.com/user-attachments/assets/63d58d24-dc83-4069-8cd7-e9ddc118f038)
 
 
