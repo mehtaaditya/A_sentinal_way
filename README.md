@@ -13,6 +13,13 @@ List of tasks to be accomplised in this lab are as follows:
 10. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
 11. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
 12. In this part i connected two workspaces together with the help of Azure lighthouse for mangement of a client loganalytics from my own subscription.
+13. Inreal world scenario a MSSP will be managing a cutomer's subscription and sentinel workspace for them. For this we need to onboard customer's subscription to MSSP provide's one. Go to my customer page in MSSP tenant and create template for customer onboarding
+14. Add the resource group where sentinel is located and add authorization for the user. Add sentinel contributer role for them to manage all aspects of sentinel
+15. Download the template and then go to the customer's tenant and deploy it in the service provider section of the portal Serive provider offers < add offer < add template
+16. Select that template downlaoded from MSSP tenant
+17. Go to the sentinel workspace in MSSP and select setting and add workspace manager and add the sentinel workspace that will begin showing up for customer workspace,
+18. Sentinel onboarded. Now you can run cross workspace queries and run analytical rule across them to get the multitenant alerts( that will only show in MSSP tenant)
+19. Added a function query to query across workspaces quickly
 __There are many substeps within each of these tasks. I tried to put screenshots for all important ones.__
 
 
