@@ -204,6 +204,25 @@ creating the playbook and ensuring i have dataconectors for all the serives used
 
 ![Screenshot 2024-08-16 231330](https://github.com/user-attachments/assets/383733c9-2125-43b1-9965-666d77b68b35)
 
+![Screenshot 2024-08-22 231640](https://github.com/user-attachments/assets/b1bfe5ec-cf7b-4d2d-9a88-98e4e6bb3df3)
+
+![Screenshot 2024-08-22 235137](https://github.com/user-attachments/assets/645a0067-8b01-4d2c-aabe-01ce93b1ca55)
+
+![Screenshot 2024-08-22 235157](https://github.com/user-attachments/assets/1d5c777f-f94d-4b99-b175-66cf147f3c81)
+
+![Screenshot 2024-08-23 001557](https://github.com/user-attachments/assets/0b699163-7c14-4dcd-80c4-a0cabeb61d4e)
+
+![Screenshot 2024-08-23 001821](https://github.com/user-attachments/assets/4b66a9ca-08e9-4275-8f7c-67ce81b19802)
+
+![Screenshot 2024-08-23 002126](https://github.com/user-attachments/assets/025581ea-4f08-49f6-8aba-b00ef4ae3258)
+
+![Screenshot 2024-08-23 010247](https://github.com/user-attachments/assets/31142d77-225e-48a9-b8a8-87e40b08d2d6)
+
+![Screenshot 2024-08-23 010330](https://github.com/user-attachments/assets/cae588b7-b474-4503-aa89-c109d8219381)
+
+![Screenshot 2024-08-23 011133](https://github.com/user-attachments/assets/53df2ecc-54c6-4fbc-94e4-01e7f75c659a)
+
+![Screenshot 2024-08-23 013653](https://github.com/user-attachments/assets/2b09ab22-51e4-4893-a9eb-86e7ccda3a71)
 
 Make sure sentinel and logic app have proper permisions to act on the playbook( like we did in the slides above) and the rule is ready to run
 
