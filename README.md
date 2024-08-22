@@ -1,25 +1,25 @@
 
 # Weclome to this Sentinal lab 
-List of tasks to be accomplised in this lab are as follows:
-1. creating a sentinel workspace which is free for first 30 days of use of upto 10gb perday of data ingestion so there is no problem setting up a trial account and working towards it
-2. setting up onprem and multicloud servers. in this lab i used my windows 11 pc and a linux machine on AWS which acts as on prem machine in this case  
-3. setting up data connectors to various os and setting up configuration to azure activity logs as well as Entra ID logs. I also went ahead and installed the data connector for AWS cloudtrail which is equivalent to azure activity logs and bring that to Azure sentinel
-4. To bring the logs from AWS to sentinel i had to create a stack in cloudformation using a template automatically created in sentinel while setting up the connector
-5. installing Azure ARC and then azure monitor to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
-6. Now that we will have all the necessary logs ingested in sentinel, we can go ahead and make some analytical rules. We can use build-in rules or we can make our own.
-7. I couldnt find the one related to impossible travel login where one user login to azure from two distant locations within a short period of time which is impossible hence the name, so i made a custom NRT rule query using KQL for this which will run in short intervals of time to detect the suspicious login
-8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations using VPN and the results soon started showing on the dashborad of sentinel.
-9. i made virustotal account and got the api key needed for the activity of making the playbook and getting the ipreputation of the said address in the query results and then made the playbook using logic app designer
-10. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
-11. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
-12. In this part i connected two workspaces together with the help of Azure lighthouse for mangement of a client loganalytics from my own subscription.
-13. Inreal world scenario a MSSP will be managing a cutomer's subscription and sentinel workspace for them. For this we need to onboard customer's subscription to MSSP provide's one. Go to my customer page in MSSP tenant and create template for customer onboarding
-14. Add the resource group where sentinel is located and add authorization for the user. Add sentinel contributer role for them to manage all aspects of sentinel
-15. Download the template and then go to the customer's tenant and deploy it in the service provider section of the portal Serive provider offers < add offer < add template
-16. Select that template downlaoded from MSSP tenant
-17. Go to the sentinel workspace in MSSP and select setting and add workspace manager and add the sentinel workspace that will begin showing up for customer workspace,
-18. Sentinel onboarded. Now you can run cross workspace queries and run analytical rule across them to get the multitenant alerts( that will only show in MSSP tenant)
-19. Added a function query to query across workspaces quickly
+## List of tasks to be accomplised in this lab are as follows:
+## 1. creating a sentinel workspace which is free for first 30 days of use of upto 10gb perday of data ingestion so there is no problem setting up a trial account and working towards it
+## 2. setting up onprem and multicloud servers. in this lab i used my windows 11 pc and a linux machine on AWS which acts as on prem machine in this case  
+## 3. setting up data connectors to various os and setting up configuration to azure activity logs as well as Entra ID logs. I also went ahead and installed the data connector for AWS cloudtrail which is equivalent to azure activity logs and bring that to Azure sentinel
+## 4. To bring the logs from AWS to sentinel i had to create a stack in cloudformation using a template automatically created in sentinel while setting up the connector
+## 5. installing Azure ARC and then azure monitor to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
+## 6. Now that we will have all the necessary logs ingested in sentinel, we can go ahead and make some analytical rules. We can use build-in rules or we can make our own.
+## 7. I couldnt find the one related to impossible travel login where one user login to azure from two distant locations within a short period of time which is impossible hence the name, so i made a custom NRT rule query using KQL for this which will run in short intervals of time to detect the suspicious login
+## 8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations using VPN and the results soon started showing on the dashborad of sentinel.
+## 9. i made virustotal account and got the api key needed for the activity of making the playbook and getting the ipreputation of the said address in the query results and then made the playbook using logic app designer
+## 10. Next i used an inbuild rule 'Priviliged role assigned outside of PIM' and then gave some user global admin role in Entra and soon the incident was showing up the dashboard.
+## 11. For on-prem windows machine i used the event id 4720 as new user created on the windows machine as a alert and made an automation rule to select a playbook which emails the analyst about the alert
+## 12. In this part i connected two workspaces together with the help of Azure lighthouse for mangement of a client loganalytics from my own subscription.
+## 13. Inreal world scenario a MSSP will be managing a cutomer's subscription and sentinel workspace for them. For this we need to onboard customer's subscription to MSSP provide's one. Go to my customer page in MSSP tenant and create template for customer onboarding
+## 14. Add the resource group where sentinel is located and add authorization for the user. Add sentinel contributer role for them to manage all aspects of sentinel
+## 15. Download the template and then go to the customer's tenant and deploy it in the service provider section of the portal Serive provider offers < add offer < add template
+## 16. Select that template downlaoded from MSSP tenant
+## 17. Go to the sentinel workspace in MSSP and select setting and add workspace manager and add the sentinel workspace that will begin showing up for customer workspace,
+## 18. Sentinel onboarded. Now you can run cross workspace queries and run analytical rule across them to get the multitenant alerts( that will only show in MSSP tenant)
+## 19. Added a function query to query across workspaces quickly
 __There are many substeps within each of these tasks. I tried to put screenshots for all important ones.__
 
 
