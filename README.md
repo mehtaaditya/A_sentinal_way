@@ -5,7 +5,7 @@
 ## 2. Setting up onprem and multicloud servers. in this lab i used my windows 11 pc and a linux machine on AWS which acts as on prem machine in this case  
 ## 3. Setting up data connectors to various os and setting up configuration to azure activity logs as well as Entra ID logs. I also went ahead and installed the data connector for AWS cloudtrail which is equivalent to azure activity logs and bring that to Azure sentinel
 ## 4. To bring the logs from AWS to sentinel i had to create a stack in cloudformation using a template automatically created in sentinel while setting up the connector
-## 5. Installing Azure ARC and then azure monitor to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
+## 5. Installing Azure ARC and then azure monitor agent to ingest logs in Azure sentinel. Windows logs will be SecurityEvents table and the linux logs will be syslog table in the sentinel. 
 ## 6. Now that we will have all the necessary logs ingested in sentinel, we can go ahead and make some analytical rules. We can use build-in rules or we can make our own.
 ## 7. I couldnt find the one related to impossible travel login where one user login to azure from two distant locations within a short period of time which is impossible hence the name, so i made a custom NRT rule query using KQL for this which will run in short intervals of time to detect the suspicious login
 ## 8. I made some user accounts in entra for these next rules and made them sign-in from differnet locations using VPN and the results soon started showing on the dashborad of sentinel.
