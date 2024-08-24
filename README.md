@@ -1,5 +1,6 @@
 
 # Weclome to this Sentinal lab 
+## Services used: Azure Sentinel, Azure Arc, Azure Monitor Agent, AWS cloudformation, AWS Cloudtrail, AWS EC2 instances, Log analytics, Azure Logic Apps, Azure Lighthouse, Entra ID
 ## List of tasks to be accomplised in this lab are as follows:
 ## 1. Creating a sentinel workspace which is free for first 30 days of use of upto 10gb perday of data ingestion so there is no problem setting up a trial account and working towards it
 ## 2. Setting up onprem and multicloud servers. in this lab i used my windows 11 pc and a linux machine on AWS which acts as on prem machine in this case  
